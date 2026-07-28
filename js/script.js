@@ -35,25 +35,14 @@ faqItems.forEach((item) => {
                 otherItem.querySelector(".faq-answer");
 
             otherItem.classList.remove("active");
-
-            otherQuestion.setAttribute(
-                "aria-expanded",
-                "false"
-            );
-
+            otherQuestion.setAttribute("aria-expanded", "false");
             otherAnswer.style.maxHeight = null;
         });
 
         if (!isOpen) {
             item.classList.add("active");
-
-            question.setAttribute(
-                "aria-expanded",
-                "true"
-            );
-
-            answer.style.maxHeight =
-                `${answer.scrollHeight}px`;
+            question.setAttribute("aria-expanded", "true");
+            answer.style.maxHeight = `${answer.scrollHeight}px`;
         }
     });
 });
@@ -82,14 +71,8 @@ function openLightbox(imageUrl) {
     }
 
     lightboxImage.src = imageUrl;
-
     portfolioLightbox.classList.add("active");
-
-    portfolioLightbox.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
+    portfolioLightbox.setAttribute("aria-hidden", "false");
     document.body.classList.add("no-scroll");
 }
 
@@ -99,12 +82,7 @@ function closeLightbox() {
     }
 
     portfolioLightbox.classList.remove("active");
-
-    portfolioLightbox.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
+    portfolioLightbox.setAttribute("aria-hidden", "true");
     document.body.classList.remove("no-scroll");
 
     setTimeout(() => {
@@ -160,12 +138,7 @@ function openBookingModal() {
     }
 
     bookingModal.classList.add("active");
-
-    bookingModal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
+    bookingModal.setAttribute("aria-hidden", "false");
     document.body.classList.add("no-scroll");
 }
 
@@ -175,12 +148,7 @@ function closeBookingModal() {
     }
 
     bookingModal.classList.remove("active");
-
-    bookingModal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
+    bookingModal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("no-scroll");
 }
 
