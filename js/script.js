@@ -1,14 +1,12 @@
 "use strict";
 
+/*
+|--------------------------------------------------------------------------
+| Current year
+|--------------------------------------------------------------------------
+*/
+
 const currentYear = document.getElementById("current-year");
-
-const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightbox-image");
-const lightboxClose = document.getElementById("lightbox-close");
-
-const bookingButton = document.getElementById("demo-booking-button");
-const bookingModal = document.getElementById("booking-modal");
-const bookingModalClose = document.getElementById("booking-modal-close");
 
 if (currentYear) {
     currentYear.textContent = new Date().getFullYear();
@@ -16,28 +14,97 @@ if (currentYear) {
 
 /*
 |--------------------------------------------------------------------------
+| FAQ accordion
+|--------------------------------------------------------------------------
+*/
+
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach((item) => {
+    const question = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+
+    question.addEventListener("click", () => {
+        const isOpen = item.classList.contains("active");
+
+        faqItems.forEach((otherItem) => {
+            const otherQuestion =
+                otherItem.querySelector(".faq-question");
+
+            const otherAnswer =
+                otherItem.querySelector(".faq-answer");
+
+            otherItem.classList.remove("active");
+
+            otherQuestion.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            otherAnswer.style.maxHeight = null;
+        });
+
+        if (!isOpen) {
+            item.classList.add("active");
+
+            question.setAttribute(
+                "aria-expanded",
+                "true"
+            );
+
+            answer.style.maxHeight =
+                `${answer.scrollHeight}px`;
+        }
+    });
+});
+
+/*
+|--------------------------------------------------------------------------
 | Portfolio lightbox
 |--------------------------------------------------------------------------
 */
 
-document.querySelectorAll(".portfolio-image").forEach((item) => {
-    item.addEventListener("click", () => {
-        const fullImage = item.dataset.full;
+const portfolioItems =
+    document.querySelectorAll(".portfolio-item");
 
-        if (!fullImage) {
-            return;
-        }
+const portfolioLightbox =
+    document.getElementById("portfolio-lightbox");
 
-        lightboxImage.src = fullImage;
-        lightbox.classList.add("active");
-        lightbox.setAttribute("aria-hidden", "false");
-        document.body.classList.add("no-scroll");
-    });
-});
+const lightboxImage =
+    document.getElementById("lightbox-image");
+
+const closeLightboxButton =
+    document.getElementById("close-lightbox");
+
+function openLightbox(imageUrl) {
+    if (!portfolioLightbox || !lightboxImage || !imageUrl) {
+        return;
+    }
+
+    lightboxImage.src = imageUrl;
+
+    portfolioLightbox.classList.add("active");
+
+    portfolioLightbox.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.classList.add("no-scroll");
+}
 
 function closeLightbox() {
-    lightbox.classList.remove("active");
-    lightbox.setAttribute("aria-hidden", "true");
+    if (!portfolioLightbox || !lightboxImage) {
+        return;
+    }
+
+    portfolioLightbox.classList.remove("active");
+
+    portfolioLightbox.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
     document.body.classList.remove("no-scroll");
 
     setTimeout(() => {
@@ -45,67 +112,109 @@ function closeLightbox() {
     }, 250);
 }
 
-lightboxClose.addEventListener("click", closeLightbox);
-
-lightbox.addEventListener("click", (event) => {
-    if (event.target === lightbox) {
-        closeLightbox();
-    }
-});
-
-/*
-|--------------------------------------------------------------------------
-| FAQ
-|--------------------------------------------------------------------------
-*/
-
-document.querySelectorAll(".faq-item").forEach((item) => {
-    const question = item.querySelector(".faq-question");
-    const answer = item.querySelector(".faq-answer");
-
-    question.addEventListener("click", () => {
-        const isOpen = item.classList.contains("active");
-
-        document.querySelectorAll(".faq-item").forEach((otherItem) => {
-            otherItem.classList.remove("active");
-
-            const otherAnswer = otherItem.querySelector(".faq-answer");
-
-            otherAnswer.style.maxHeight = null;
-        });
-
-        if (!isOpen) {
-            item.classList.add("active");
-            answer.style.maxHeight = `${answer.scrollHeight}px`;
-        }
+portfolioItems.forEach((item) => {
+    item.addEventListener("click", () => {
+        openLightbox(item.dataset.full);
     });
 });
 
+if (closeLightboxButton) {
+    closeLightboxButton.addEventListener(
+        "click",
+        closeLightbox
+    );
+}
+
+if (portfolioLightbox) {
+    portfolioLightbox.addEventListener(
+        "click",
+        (event) => {
+            if (event.target === portfolioLightbox) {
+                closeLightbox();
+            }
+        }
+    );
+}
+
 /*
 |--------------------------------------------------------------------------
-| Demo booking modal
+| Booking modal
 |--------------------------------------------------------------------------
 */
 
+const bookingModal =
+    document.getElementById("booking-modal");
+
+const openBookingModalButton =
+    document.getElementById("open-booking-modal");
+
+const closeBookingModalButton =
+    document.getElementById("close-booking-modal");
+
+const confirmBookingModalButton =
+    document.getElementById("confirm-booking-modal");
+
+function openBookingModal() {
+    if (!bookingModal) {
+        return;
+    }
+
+    bookingModal.classList.add("active");
+
+    bookingModal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+    document.body.classList.add("no-scroll");
+}
+
 function closeBookingModal() {
+    if (!bookingModal) {
+        return;
+    }
+
     bookingModal.classList.remove("active");
-    bookingModal.setAttribute("aria-hidden", "true");
+
+    bookingModal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
     document.body.classList.remove("no-scroll");
 }
 
-bookingButton.addEventListener("click", () => {
-    bookingModal.classList.add("active");
-    bookingModal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("no-scroll");
-});
+if (openBookingModalButton) {
+    openBookingModalButton.addEventListener(
+        "click",
+        openBookingModal
+    );
+}
 
-bookingModalClose.addEventListener("click", closeBookingModal);
+if (closeBookingModalButton) {
+    closeBookingModalButton.addEventListener(
+        "click",
+        closeBookingModal
+    );
+}
 
-bookingModal.addEventListener("click", (event) => {
-    if (event.target === bookingModal) {
-        closeBookingModal();
-    }
-});
+if (confirmBookingModalButton) {
+    confirmBookingModalButton.addEventListener(
+        "click",
+        closeBookingModal
+    );
+}
+
+if (bookingModal) {
+    bookingModal.addEventListener(
+        "click",
+        (event) => {
+            if (event.target === bookingModal) {
+                closeBookingModal();
+            }
+        }
+    );
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -118,11 +227,17 @@ document.addEventListener("keydown", (event) => {
         return;
     }
 
-    if (lightbox.classList.contains("active")) {
+    if (
+        portfolioLightbox &&
+        portfolioLightbox.classList.contains("active")
+    ) {
         closeLightbox();
     }
 
-    if (bookingModal.classList.contains("active")) {
+    if (
+        bookingModal &&
+        bookingModal.classList.contains("active")
+    ) {
         closeBookingModal();
     }
 });
