@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Book With Justin | Justin Trevino Tattoos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/booking.css">
+</head>
+
+<body>
+
+    <header class="booking-header">
+
+        <a href="index.html" class="booking-logo">
+            <span>Justin</span>
+            <span>Trevino</span>
+            <span>Tattoos</span>
+        </a>
+
+        <a href="index.html" class="back-link">
+            ← Back To Site
+        </a>
+
+    </header>
+
+    <main class="booking-page">
+
+        <section class="booking-intro">
+
+            <p class="eyebrow">
+                Tattoo Request
+            </p>
+
+            <h1>
+                Book With Justin
+            </h1>
+
+            <p>
+                Tell Justin about your tattoo idea. The more detail you provide,
+                the easier it is to understand the project and determine the
+                right appointment.
+            </p>
+
+        </section>
+
+        <!-- Progress -->
+
+        <div class="progress-wrapper">
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+
+            <div class="progress-meta">
+                <span id="step-label">Step 1 of 6</span>
+                <span id="step-name">Your Information</span>
+            </div>
+
+        </div>
+
+        <form id="tattoo-booking-form">
+
+            <!-- STEP 1 -->
+
+            <section
+                class="form-step active"
+                data-step="1"
+                data-name="Your Information"
+            >
+
+                <div class="step-heading">
+
+                    <p class="step-number">
+                        01
+                    </p>
+
+                    <h2>
+                        Your Information
+                    </h2>
+
+                    <p>
+                        Let's start with the basics.
+                    </p>
+
+                </div>
+
+                <div class="field-grid two-columns">
+
+                    <div class="field">
+
+                        <label for="first-name">
+                            First Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="first-name"
+                            name="firstName"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="last-name">
+                            Last Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="last-name"
+                            name="lastName"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="field-grid two-columns">
+
+                    <div class="field">
+
+                        <label for="email">
+                            Email *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="phone">
+                            Phone Number *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            required
+                        >
+
+                        <small>
+                            Justin may contact you if he needs more information
+                            about your tattoo.
+                        </small>
+
+                    </div>
+
+                </div>
+
+                <div class="field">
+
+                    <label>
+                        Have you been tattooed by Justin before? *
+                    </label>
+
+                    <div class="choice-row">
+
+                        <label class="choice-card">
+                            <input
+                                type="radio"
+                                name="returningClient"
+                                value="Yes"
+                                required
+                            >
+                            <span>Yes</span>
+                        </label>
+
+                        <label class="choice-card">
+                            <input
+                                type="radio"
+                                name="returningClient"
+                                value="No"
+                            >
+                            <span>No</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- STEP 2 -->
+
+            <section
+                class="form-step"
+                data-step="2"
+                data-name="Tattoo Details"
+            >
+
+                <div class="step-heading">
+
+                    <p class="step-number">
+                        02
+                    </p>
+
+                    <h2>
+                        Tattoo Details
+                    </h2>
+
+                    <p>
+                        Give Justin an idea of what you're looking to create.
+                    </p>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="placement">
+                        Tattoo Placement *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="placement"
+                        name="placement"
+                        placeholder="Example: outer forearm, upper arm, calf..."
+                        required
+                    >
+
+                </div>
+
+                <div class="field">
+
+                    <label>
+                        Is this a cover-up? *
+                    </label>
+
+                    <div class="choice-row">
+
+                        <label class="choice-card">
+                            <input
+                                type="radio"
+                                name="coverup"
+                                value="Yes"
+                                id="coverup-yes"
+                                required
+                            >
+                            <span>Yes</span>
+                        </label>
+
+                        <label class="choice-card">
+                            <input
+                                type="radio"
+                                name="coverup"
+                                value="No"
+                                id="coverup-no"
+                            >
+                            <span>No</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div
+                    class="field conditional-field"
+                    id="coverup-photo-field"
+                >
+
+                    <label for="coverup-photo">
+                        Existing Tattoo / Cover-Up Photo
+                    </label>
+
+                    <div class="upload-area">
+
+                        <input
+                            type="file"
+                            id="coverup-photo"
+                            name="coverupPhoto"
+                            accept="image/*"
+                        >
+
+                        <p>
+                            Upload a clear, well-lit photo showing the tattoo
+                            and surrounding skin.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="field-grid two-columns">
+
+                    <div class="field">
+
+                        <label for="height">
+                            Approximate Height
+                        </label>
+
+                        <div class="measurement-input">
+                            <input
+                                type="number"
+                                id="height"
+                                name="height"
+                                min="0"
+                                step="0.5"
+                                placeholder="0"
+                            >
+                            <span>inches</span>
+                        </div>
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="width">
+                            Approximate Width
+                        </label>
+
+                        <div class="measurement-input">
+                            <input
+                                type="number"
+                                id="width"
+                                name="width"
+                                min="0"
+                                step="0.5"
+                                placeholder="0"
+                            >
+                            <span>inches</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="style">
+                        Preferred Tattoo Style *
+                    </label>
+
+                    <select
+                        id="style"
+                        name="style"
+                        required
+                    >
+                        <option value="">
+                            Select a style
+                        </option>
+
+                        <option>
+                            Black & Grey Realism
+                        </option>
+
+                        <option>
+                            Color Realism
+                        </option>
+
+                        <option>
+                            Neo-Traditional
+                        </option>
+
+                        <option>
+                            New School
+                        </option>
+
+                        <option>
+                            Traditional
+                        </option>
+
+                        <option>
+                            Fine Line
+                        </option>
+
+                        <option>
+                            Lettering
+                        </option>
+
+                        <option>
+                            Cover-Up
+                        </option>
+
+                        <option>
+                            Other / Not Sure
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="field">
+
+                    <label>
+                        Color Preference *
+                    </label>
+
+                    <div class="choice-row three">
+
+                        <label class="choice-card">
+                            <input
+                                type="radio"
+                                name="colorPreference"
+                                value="Black & Grey"
+                                required
+                            >
+                            <span>Black & Grey</span>
+                        </label>
+
+                        <label class="choice-card">
+                            <input
+                                type="radio"
+                                name="colorPreference"
+                                value="Color"
+                            >
+                            <span>Color</span>
+                        </label>
+
+                        <label class="choice-card">
+                            <input
+                                type="radio"
+                                name="colorPreference"
+                                value="Mix"
+                            >
+                            <span>Mix</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="description">
+                        Describe Your Tattoo *
+                    </label>
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        rows="7"
+                        placeholder="Tell Justin what you're envisioning..."
+                        required
+                    ></textarea>
+
+                </div>
+
+            </section>
+
+            <!-- STEP 3 -->
+
+            <section
+                class="form-step"
+                data-step="3"
+                data-name="Reference Photos"
+            >
+
+                <div class="step-heading">
+
+                    <p class="step-number">
+                        03
+                    </p>
+
+                    <h2>
+                        Reference Photos
+                    </h2>
+
+                    <p>
+                        Upload images that help explain the direction,
+                        composition, style or subject you're looking for.
+                    </p>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="placement-photo">
+                        Placement Photo
+                    </label>
+
+                    <div class="upload-area">
+
+                        <input
+                            type="file"
+                            id="placement-photo"
+                            name="placementPhoto"
+                            accept="image/*"
+                        >
+
+                        <p>
+                            A photo of the area where you'd like the tattoo.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="reference-grid">
+
+                    <div class="field">
+
+                        <label for="reference-one">
+                            Reference Image 1
+                        </label>
+
+                        <div class="upload-area compact">
+
+                            <input
+                                type="file"
+                                id="reference-one"
+                                name="referenceOne"
+                                accept="image/*"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="reference-two">
+                            Reference Image 2
+                        </label>
+
+                        <div class="upload-area compact">
+
+                            <input
+                                type="file"
+                                id="reference-two"
+                                name="referenceTwo"
+                                accept="image/*"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <div class="field">
+
+                        <label for="reference-three">
+                            Reference Image 3
+                        </label>
+
+                        <div class="upload-area compact">
+
+                            <input
+                                type="file"
+                                id="reference-three"
+                                name="referenceThree"
+                                accept="image/*"
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <p class="form-note">
+                    Reference images are used to communicate direction and
+                    inspiration. Final artwork will be customized for the client.
+                </p>
+
+            </section>
+
+            <!-- STEP 4 -->
+
+            <section
+                class="form-step"
+                data-step="4"
+                data-name="Session & Budget"
+            >
+
+                <div class="step-heading">
+
+                    <p class="step-number">
+                        04
+                    </p>
+
+                    <h2>
+                        Session & Budget
+                    </h2>
+
+                    <p>
+                        Choose the option that seems closest to your project.
+                        Justin can recommend a different session if necessary.
+                    </p>
+
+                </div>
+
+                <div class="session-grid">
+
+                    <label class="session-card">
+
+                        <input
+                            type="radio"
+                            name="sessionType"
+                            value="Hourly"
+                            required
+                        >
+
+                        <span class="session-check"></span>
+
+                        <span class="session-name">
+                            Hourly
+                        </span>
+
+                        <span class="session-duration">
+                            Smaller Projects
+                        </span>
+
+                        <strong>
+                            $200 / hour
+                        </strong>
+
+                    </label>
+
+                    <label class="session-card">
+
+                        <input
+                            type="radio"
+                            name="sessionType"
+                            value="Half Day"
+                        >
+
+                        <span class="session-check"></span>
+
+                        <span class="session-name">
+                            Half Day
+                        </span>
+
+                        <span class="session-duration">
+                            Approx. 3 Hours
+                        </span>
+
+                        <strong>
+                            $500
+                        </strong>
+
+                    </label>
+
+                    <label class="session-card">
+
+                        <input
+                            type="radio"
+                            name="sessionType"
+                            value="Full Day"
+                        >
+
+                        <span class="session-check"></span>
+
+                        <span class="session-name">
+                            Full Day
+                        </span>
+
+                        <span class="session-duration">
+                            Approx. 6 Hours
+                        </span>
+
+                        <strong>
+                            $1,000
+                        </strong>
+
+                    </label>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="budget">
+                        Estimated Tattoo Budget *
+                    </label>
+
+                    <select
+                        id="budget"
+                        name="budget"
+                        required
+                    >
+
+                        <option value="">
+                            Select your budget
+                        </option>
+
+                        <option>
+                            $100 - $200
+                        </option>
+
+                        <option>
+                            $300 - $400
+                        </option>
+
+                        <option>
+                            $500 - $600
+                        </option>
+
+                        <option>
+                            $700 - $800
+                        </option>
+
+                        <option>
+                            $1,000+
+                        </option>
+
+                        <option>
+                            Not Sure
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </section>
+
+            <!-- STEP 5 -->
+
+            <section
+                class="form-step"
+                data-step="5"
+                data-name="Availability"
+            >
+
+                <div class="step-heading">
+
+                    <p class="step-number">
+                        05
+                    </p>
+
+                    <h2>
+                        Availability
+                    </h2>
+
+                    <p>
+                        Tell Justin which days generally work best for you.
+                    </p>
+
+                </div>
+
+                <div class="field">
+
+                    <label>
+                        Preferred Days
+                    </label>
+
+                    <div class="day-grid">
+
+                        <label class="day-card">
+                            <input
+                                type="checkbox"
+                                name="preferredDays"
+                                value="Wednesday"
+                            >
+                            <span>Wed</span>
+                        </label>
+
+                        <label class="day-card">
+                            <input
+                                type="checkbox"
+                                name="preferredDays"
+                                value="Thursday"
+                            >
+                            <span>Thu</span>
+                        </label>
+
+                        <label class="day-card">
+                            <input
+                                type="checkbox"
+                                name="preferredDays"
+                                value="Friday"
+                            >
+                            <span>Fri</span>
+                        </label>
+
+                        <label class="day-card">
+                            <input
+                                type="checkbox"
+                                name="preferredDays"
+                                value="Saturday"
+                            >
+                            <span>Sat</span>
+                        </label>
+
+                        <label class="day-card">
+                            <input
+                                type="checkbox"
+                                name="preferredDays"
+                                value="Sunday"
+                            >
+                            <span>Sun</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="specific-dates">
+                        Specific Dates
+                    </label>
+
+                    <textarea
+                        id="specific-dates"
+                        name="specificDates"
+                        rows="4"
+                        placeholder="Example: August 21, August 29, September 4..."
+                    ></textarea>
+
+                </div>
+
+                <div class="field">
+
+                    <label for="availability-notes">
+                        Scheduling Notes
+                    </label>
+
+                    <textarea
+                        id="availability-notes"
+                        name="availabilityNotes"
+                        rows="4"
+                        placeholder="Anything Justin should know about your availability?"
+                    ></textarea>
+
+                </div>
+
+            </section>
+
+            <!-- STEP 6 -->
+
+            <section
+                class="form-step"
+                data-step="6"
+                data-name="Review"
+            >
+
+                <div class="step-heading">
+
+                    <p class="step-number">
+                        06
+                    </p>
+
+                    <h2>
+                        Review Your Request
+                    </h2>
+
+                    <p>
+                        Confirm the information below before submitting.
+                    </p>
+
+                </div>
+
+                <div
+                    class="review-summary"
+                    id="review-summary"
+                ></div>
+
+                <div class="policies">
+
+                    <h3>
+                        Booking Policies
+                    </h3>
+
+                    <p>
+                        This form is a tattoo request and does not automatically
+                        guarantee an appointment. Justin will review the project
+                        before confirming the booking.
+                    </p>
+
+                    <p>
+                        A deposit may be required before an appointment is
+                        officially reserved. Deposit, cancellation and
+                        rescheduling policies will be confirmed before payment.
+                    </p>
+
+                    <label class="policy-check">
+
+                        <input
+                            type="checkbox"
+                            id="policy-agreement"
+                            required
+                        >
+
+                        <span>
+                            I understand that submitting this form is a booking
+                            request and not a confirmed appointment.
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </section>
+
+            <!-- Navigation -->
+
+            <div class="form-navigation">
+
+                <button
+                    type="button"
+                    class="nav-button secondary"
+                    id="previous-button"
+                    disabled
+                >
+                    ← Previous
+                </button>
+
+                <button
+                    type="button"
+                    class="nav-button primary"
+                    id="next-button"
+                >
+                    Continue →
+                </button>
+
+                <button
+                    type="submit"
+                    class="nav-button primary submit-button"
+                    id="submit-button"
+                >
+                    Submit Request
+                </button>
+
+            </div>
+
+        </form>
+
+    </main>
+
+    <!-- Confirmation -->
+
+    <div
+        class="confirmation-modal"
+        id="confirmation-modal"
+        aria-hidden="true"
+    >
+
+        <div class="confirmation-card">
+
+            <p class="eyebrow">
+                Request Received
+            </p>
+
+            <h2>
+                Thank You
+            </h2>
+
+            <p>
+                This is currently a demo booking form. 
+            </p>
+
+            <a
+                href="index.html"
+                class="confirmation-button"
+            >
+                Back To Website
+            </a>
+
+        </div>
+
+    </div>
+
+    <script src="js/booking.js"></script>
+
+</body>
+
+</html>
