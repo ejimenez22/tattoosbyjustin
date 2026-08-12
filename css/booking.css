@@ -417,6 +417,27 @@ button {
     letter-spacing: 0.08em;
 }
 
+.session-note {
+    margin: -10px 0 45px;
+    padding: 24px 26px;
+    border-left: 2px solid var(--white);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.session-note strong {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.session-note p {
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.7;
+}
+
 /* Days */
 
 .day-grid {

@@ -63,7 +63,6 @@ function displayStep() {
     if (currentStep === steps.length - 1) {
         nextButton.style.display = "none";
         submitButton.style.display = "block";
-
         buildReview();
     } else {
         nextButton.style.display = "block";
@@ -115,6 +114,37 @@ previousButton.addEventListener("click", () => {
     if (currentStep > 0) {
         currentStep--;
         displayStep();
+    }
+});
+
+/*
+|--------------------------------------------------------------------------
+| Placement conditional field
+|--------------------------------------------------------------------------
+*/
+
+const placementSelect =
+    document.getElementById("placement");
+
+const otherPlacementField =
+    document.getElementById("other-placement-field");
+
+const otherPlacementInput =
+    document.getElementById("other-placement");
+
+placementSelect.addEventListener("change", () => {
+    const isOther =
+        placementSelect.value === "Other";
+
+    otherPlacementField.classList.toggle(
+        "visible",
+        isOther
+    );
+
+    otherPlacementInput.required = isOther;
+
+    if (!isOther) {
+        otherPlacementInput.value = "";
     }
 });
 
@@ -182,6 +212,17 @@ function getValue(id) {
         : "Not provided";
 }
 
+function getPlacementValue() {
+    const placement =
+        getValue("placement");
+
+    if (placement === "Other") {
+        return getValue("other-placement");
+    }
+
+    return placement;
+}
+
 function addReviewRow(label, value) {
     const row = document.createElement("div");
 
@@ -225,7 +266,7 @@ function buildReview() {
 
     addReviewRow(
         "Placement",
-        getValue("placement")
+        getPlacementValue()
     );
 
     addReviewRow(

@@ -9,7 +9,7 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Book With Justin | Justin Trevino Tattoos</title>
+    <title>Submit A Request | Justin Trevino Tattoos</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,22 +43,20 @@
         <section class="booking-intro">
 
             <p class="eyebrow">
-                Tattoo Request
+                Start Your Project
             </p>
 
             <h1>
-                Book With Justin
+                Submit Your Request
             </h1>
 
             <p>
-                Tell Justin about your tattoo idea. The more detail you provide,
-                the easier it is to understand the project and determine the
-                right appointment.
+                Share the details of your tattoo idea below. The more
+                information you provide, the better I can understand
+                the project.
             </p>
 
         </section>
-
-        <!-- Progress -->
 
         <div class="progress-wrapper">
 
@@ -235,12 +233,50 @@
                         Tattoo Placement *
                     </label>
 
-                    <input
-                        type="text"
+                    <select
                         id="placement"
                         name="placement"
-                        placeholder="Example: outer forearm, upper arm, calf..."
                         required
+                    >
+                        <option value="">
+                            Select a placement
+                        </option>
+
+                        <option>Shoulder</option>
+                        <option>Upper Arm</option>
+                        <option>Forearm</option>
+                        <option>Wrist</option>
+                        <option>Hand</option>
+                        <option>Chest</option>
+                        <option>Stomach</option>
+                        <option>Ribs</option>
+                        <option>Back</option>
+                        <option>Neck</option>
+                        <option>Thigh</option>
+                        <option>Knee</option>
+                        <option>Shin</option>
+                        <option>Calf</option>
+                        <option>Ankle</option>
+                        <option>Foot</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                </div>
+
+                <div
+                    class="field conditional-field"
+                    id="other-placement-field"
+                >
+
+                    <label for="other-placement">
+                        Specific Placement *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="other-placement"
+                        name="otherPlacement"
+                        placeholder="Describe the exact placement"
                     >
 
                 </div>
@@ -314,6 +350,7 @@
                         </label>
 
                         <div class="measurement-input">
+
                             <input
                                 type="number"
                                 id="height"
@@ -322,7 +359,9 @@
                                 step="0.5"
                                 placeholder="0"
                             >
+
                             <span>inches</span>
+
                         </div>
 
                     </div>
@@ -334,6 +373,7 @@
                         </label>
 
                         <div class="measurement-input">
+
                             <input
                                 type="number"
                                 id="width"
@@ -342,7 +382,9 @@
                                 step="0.5"
                                 placeholder="0"
                             >
+
                             <span>inches</span>
+
                         </div>
 
                     </div>
@@ -364,42 +406,15 @@
                             Select a style
                         </option>
 
-                        <option>
-                            Black & Grey Realism
-                        </option>
-
-                        <option>
-                            Color Realism
-                        </option>
-
-                        <option>
-                            Neo-Traditional
-                        </option>
-
-                        <option>
-                            New School
-                        </option>
-
-                        <option>
-                            Traditional
-                        </option>
-
-                        <option>
-                            Fine Line
-                        </option>
-
-                        <option>
-                            Lettering
-                        </option>
-
-                        <option>
-                            Cover-Up
-                        </option>
-
-                        <option>
-                            Other / Not Sure
-                        </option>
-
+                        <option>Black & Grey Realism</option>
+                        <option>Color Realism</option>
+                        <option>Neo-Traditional</option>
+                        <option>New School</option>
+                        <option>Traditional</option>
+                        <option>Fine Line</option>
+                        <option>Lettering</option>
+                        <option>Cover-Up</option>
+                        <option>Other / Not Sure</option>
                     </select>
 
                 </div>
@@ -624,10 +639,6 @@
                             Smaller Projects
                         </span>
 
-                        <strong>
-                            $200 / hour
-                        </strong>
-
                     </label>
 
                     <label class="session-card">
@@ -645,12 +656,8 @@
                         </span>
 
                         <span class="session-duration">
-                            Approx. 3 Hours
+                            3–4 Hours
                         </span>
-
-                        <strong>
-                            $500
-                        </strong>
 
                     </label>
 
@@ -669,15 +676,21 @@
                         </span>
 
                         <span class="session-duration">
-                            Approx. 6 Hours
+                            6–8 Hours
                         </span>
-
-                        <strong>
-                            $1,000
-                        </strong>
 
                     </label>
 
+                </div>
+
+                <div class="session-note">
+                    <strong>Large Projects & Additional Time</strong>
+
+                    <p>
+                        Large-scale projects or sessions requiring additional
+                        time beyond the selected half-day or full-day session
+                        may be billed at $100 per additional hour.
+                    </p>
                 </div>
 
                 <div class="field">
@@ -691,35 +704,16 @@
                         name="budget"
                         required
                     >
-
                         <option value="">
                             Select your budget
                         </option>
 
-                        <option>
-                            $100 - $200
-                        </option>
-
-                        <option>
-                            $300 - $400
-                        </option>
-
-                        <option>
-                            $500 - $600
-                        </option>
-
-                        <option>
-                            $700 - $800
-                        </option>
-
-                        <option>
-                            $1,000+
-                        </option>
-
-                        <option>
-                            Not Sure
-                        </option>
-
+                        <option>$100 - $200</option>
+                        <option>$300 - $400</option>
+                        <option>$500 - $600</option>
+                        <option>$700 - $800</option>
+                        <option>$1,000+</option>
+                        <option>Not Sure</option>
                     </select>
 
                 </div>
@@ -905,8 +899,6 @@
 
             </section>
 
-            <!-- Navigation -->
-
             <div class="form-navigation">
 
                 <button
@@ -940,8 +932,6 @@
 
     </main>
 
-    <!-- Confirmation -->
-
     <div
         class="confirmation-modal"
         id="confirmation-modal"
@@ -959,7 +949,7 @@
             </h2>
 
             <p>
-                This is currently a demo booking form. 
+                This is currently a demo booking form.
             </p>
 
             <a
