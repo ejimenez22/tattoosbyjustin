@@ -105,18 +105,21 @@ img {
     position: relative;
     display: flex;
     align-items: center;
-    min-height: 100vh;
-    padding: 150px 8% 100px;
+    min-height: 82vh;
+    padding: 130px 8% 80px;
     overflow: hidden;
 }
 
 .hero-background {
     position: absolute;
     inset: 0;
-    background:
-        url("https://images.unsplash.com/photo-1565058379802-bbe93b2f703a?auto=format&fit=crop&w=2200&q=90")
-        center / cover no-repeat;
-    transform: scale(1.02);
+
+    background-image: url("../images/justin-hero2.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    transform: scale(1.01);
 }
 
 .hero-overlay {
@@ -125,9 +128,9 @@ img {
     background:
         linear-gradient(
             90deg,
-            rgba(0, 0, 0, 0.9) 0%,
-            rgba(0, 0, 0, 0.62) 48%,
-            rgba(0, 0, 0, 0.4) 100%
+            rgba(0, 0, 0, 0.94) 0%,
+            rgba(0, 0, 0, 0.72) 45%,
+            rgba(0, 0, 0, 0.28) 100%
         );
 }
 
@@ -906,5 +909,18 @@ img {
 
     .booking-modal-card {
         padding: 65px 25px 42px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 100vh;
+    }
+
+    .hero-background {
+        background-image: url("../images/justin-hero.jpeg");
+        background-size: cover;
+        background-position: center 28%;
+        transform: none;
     }
 }
